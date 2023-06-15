@@ -9,6 +9,7 @@ import icon2 from "./clear.svg";
 import ButtonText from "./components/Button/Button-Text/buttonText.component";
 import ButtonTextAndIcon from "./components/Button/Button-Text-Icon/buttonTextAndIcon.component";
 import iconAdd from "./icon-add.svg";
+import TextArea from "./components/Textarea/textarea.component";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <ButtonIcon children={icon2} />
       <ButtonText children="Delete All" />
       <ButtonTextAndIcon icon={iconAdd} content="Add shipments" />
+      <TextArea children={"asdfadsf"} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Input = styled.input`
+  cursor: pointer;
   border: none;
   outline: none;
   width: 100px;

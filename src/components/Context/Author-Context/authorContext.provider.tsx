@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import {
   AuthorContextProviderType,
   AuthorContextType,
@@ -28,9 +28,21 @@ export const AuthorContextProvider = ({
     currency: ["USA", "JPY", "VND", "EUR", "ENG"],
   };
 
+  const [costType, setCostType] = useState<string>("");
+  const [incurred, setIncurred] = useState<string>("");
+  const [currency, setCurrency] = useState<string>("");
+
+  const value: AuthorContextType = {
+    select,
+    costType,
+    setCostType,
+    incurred,
+    setIncurred,
+    currency,
+    setCurrency,
+  };
+
   return (
-    <AuthorContext.Provider value={{ select }}>
-      {children}
-    </AuthorContext.Provider>
+    <AuthorContext.Provider value={value}>{children}</AuthorContext.Provider>
   );
 };

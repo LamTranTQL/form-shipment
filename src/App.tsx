@@ -28,7 +28,7 @@ function App() {
         <ButtonTextAndIcon icon={iconAdd} content="Add shipments" />
         <TextArea children={"asdfadsf"} />
 
-        <Select type={"selected"} />
+        <Select type={"currency"} />
       </div>
     </AuthorContextProvider>
   );

@@ -11,23 +11,26 @@ import ButtonTextAndIcon from "./components/Button/Button-Text-Icon/buttonTextAn
 import iconAdd from "./icon-add.svg";
 import TextArea from "./components/Textarea/textarea.component";
 import Select from "./components/Select/select.component";
+import { AuthorContextProvider } from "./components/Context/Author-Context/authorContext.provider";
 
 function App() {
   return (
-    <div className="App">
-      <Typography children="Heading 2" type="heading2" as="h2" />
+    <AuthorContextProvider>
+      <div className="App">
+        <Typography children="Heading 2" type="heading2" as="h2" />
 
-      <SubmitButton children="Create" />
-      <ButtonOutline children="Cancel" />
+        <SubmitButton children="Create" />
+        <ButtonOutline children="Cancel" />
 
-      <ButtonIcon children={icon1} />
-      <ButtonIcon children={icon2} />
-      <ButtonText children="Delete All" />
-      <ButtonTextAndIcon icon={iconAdd} content="Add shipments" />
-      <TextArea children={"asdfadsf"} />
+        <ButtonIcon children={icon1} />
+        <ButtonIcon children={icon2} />
+        <ButtonText children="Delete All" />
+        <ButtonTextAndIcon icon={iconAdd} content="Add shipments" />
+        <TextArea children={"asdfadsf"} />
 
-      <Select type={"selected"} />
-    </div>
+        <Select type={"selected"} />
+      </div>
+    </AuthorContextProvider>
   );
 }
 

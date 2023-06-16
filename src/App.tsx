@@ -10,6 +10,7 @@ import ButtonText from "./components/Button/Button-Text/buttonText.component";
 import ButtonTextAndIcon from "./components/Button/Button-Text-Icon/buttonTextAndIcon.component";
 import iconAdd from "./icon-add.svg";
 import TextArea from "./components/Textarea/textarea.component";
+import Select from "./components/Select/select.component";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
       <ButtonText children="Delete All" />
       <ButtonTextAndIcon icon={iconAdd} content="Add shipments" />
       <TextArea children={"asdfadsf"} />
+
+      <Select type={"selected"} />
     </div>
   );
 }

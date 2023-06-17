@@ -12,6 +12,7 @@ import iconAdd from "./icon-add.svg";
 import TextArea from "./components/Textarea/textarea.component";
 import Select from "./components/Select/select.component";
 import { AuthorContextProvider } from "./components/Context/Author-Context/authorContext.provider";
+import Input from "./components/Input/Default/input.component";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
         <TextArea children={"asdfadsf"} />
 
         <Select type={"currency"} />
+
+        <Input type="date time" />
+        <Input type="number" />
       </div>
     </AuthorContextProvider>
   );

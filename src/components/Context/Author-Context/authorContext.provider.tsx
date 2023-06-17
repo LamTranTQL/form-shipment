@@ -31,6 +31,8 @@ export const AuthorContextProvider = ({
   const [costType, setCostType] = useState<string>("");
   const [incurred, setIncurred] = useState<string>("");
   const [currency, setCurrency] = useState<string>("");
+  const [amount, setAmount] = useState<string>("");
+  const [dateAndTime, setDateAndTime] = useState<string>("");
 
   const value: AuthorContextType = {
     select,
@@ -40,6 +42,10 @@ export const AuthorContextProvider = ({
     setIncurred,
     currency,
     setCurrency,
+    amount,
+    setAmount,
+    dateAndTime,
+    setDateAndTime,
   };
 
   return (

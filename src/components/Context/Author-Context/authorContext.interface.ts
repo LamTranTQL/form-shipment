@@ -8,6 +8,10 @@ export interface AuthorContextType {
   setIncurred: any;
   currency: string;
   setCurrency: any;
+  amount: string;
+  setAmount: any;
+  dateAndTime: string;
+  setDateAndTime: any;
 }
 
 export interface AuthorContextProviderType {

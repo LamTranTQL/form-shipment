@@ -12,6 +12,8 @@ export interface AuthorContextType {
   setAmount: any;
   dateAndTime: string;
   setDateAndTime: any;
+  files: any[];
+  setFiles: any;
 }
 
 export interface AuthorContextProviderType {

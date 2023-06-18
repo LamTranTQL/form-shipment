@@ -13,6 +13,7 @@ import TextArea from "./components/Textarea/textarea.component";
 import Select from "./components/Select/select.component";
 import { AuthorContextProvider } from "./components/Context/Author-Context/authorContext.provider";
 import Input from "./components/Input/Default/input.component";
+import Files from "./components/Files/files.component";
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
 
         <Input type="date time" />
         <Input type="number" />
+
+        <Files />
       </div>
     </AuthorContextProvider>
   );

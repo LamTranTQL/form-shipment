@@ -33,6 +33,7 @@ export const AuthorContextProvider = ({
   const [currency, setCurrency] = useState<string>("");
   const [amount, setAmount] = useState<string>("");
   const [dateAndTime, setDateAndTime] = useState<string>("");
+  const [files, setFiles] = useState<any>([]);
 
   const value: AuthorContextType = {
     select,
@@ -46,6 +47,8 @@ export const AuthorContextProvider = ({
     setAmount,
     dateAndTime,
     setDateAndTime,
+    files,
+    setFiles,
   };
 
   return (

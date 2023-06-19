@@ -34,6 +34,7 @@ export const AuthorContextProvider = ({
   const [amount, setAmount] = useState<string>("");
   const [dateAndTime, setDateAndTime] = useState<string>("");
   const [files, setFiles] = useState<any>([]);
+  const [shipmentIndexSelected, setShipmentIndexSelected] = useState<any>([]);
 
   const value: AuthorContextType = {
     select,
@@ -49,6 +50,8 @@ export const AuthorContextProvider = ({
     setDateAndTime,
     files,
     setFiles,
+    shipmentIndexSelected,
+    setShipmentIndexSelected,
   };
 
   return (

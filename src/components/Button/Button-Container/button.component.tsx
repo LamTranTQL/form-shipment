@@ -4,7 +4,7 @@ import { BtnContaier, Span, Text } from "./button.styled";
 
 const Button = forwardRef<Ref, ButtonProps>((props, ref) => {
   return (
-    <BtnContaier>
+    <BtnContaier onClick={props.onClick}>
       <Span>
         <Text>{props.children}</Text>
       </Span>

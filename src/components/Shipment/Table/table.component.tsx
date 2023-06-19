@@ -1,4 +1,3 @@
-// import CheckBox from "../Checkbox/checkbox.component";
 import { forwardRef } from "react";
 import GetShipmentContext from "../../Context/Shipment-Context/getShipmentContext";
 
@@ -12,14 +11,14 @@ import {
   Tbody,
   Title,
 } from "./table.styled";
-import { TableRef } from "./table.interface";
+// import { TableRef } from "./table.interface";
 import CheckBox from "./CheckBox/checkbox.component";
 
-const Table = forwardRef<TableRef>((ref) => {
+const Table = forwardRef((props: any, ref: any) => {
   const { api, apiSearch, searchRender } = GetShipmentContext();
 
   return (
-    <TableContainer>
+    <TableContainer ref={ref}>
       <THeader>
         <Div></Div>
         <Div>

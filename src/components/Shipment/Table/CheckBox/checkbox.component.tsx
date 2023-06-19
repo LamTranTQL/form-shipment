@@ -21,8 +21,7 @@ const CheckBox = forwardRef<ChekcBoxRef, CheckBoxProps>((props, ref) => {
         setIsActive(false);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  });
 
   const handleClick = () => {
     if (isActive) {

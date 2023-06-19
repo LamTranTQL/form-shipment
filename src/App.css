@@ -33,6 +33,13 @@ body {
   font-size: 16px;
   line-height: 1;
 }
+#portal {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+}
 
 .App {
   max-width: 1280px;

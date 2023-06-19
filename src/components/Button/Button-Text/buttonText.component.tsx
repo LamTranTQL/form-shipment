@@ -4,7 +4,15 @@ import { BtnTextProps } from "./buttonText.interface";
 import { BtnText } from "./buttonText.styled";
 
 const ButtonText = forwardRef<Ref, BtnTextProps>((props, ref) => {
-  return <BtnText ref={ref}>{props.children}</BtnText>;
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    props.onClick();
+  };
+  return (
+    <BtnText onClick={handleClick} ref={ref}>
+      {props.children}
+    </BtnText>
+  );
 });
 
 export default ButtonText;

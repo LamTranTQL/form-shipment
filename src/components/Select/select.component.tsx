@@ -77,15 +77,15 @@ const Select = forwardRef<SelectRef, SelectProps>((props, ref) => {
 
   const handleOptionsClick = (value: any, index: number) => {
     valueSelected.current = value;
-    if (inputRef.current) {
-      inputRef.current.value = value;
-    }
-    if (props.type === "Cost type") {
+    if (props.type === "cost type") {
       setCostType(value);
     } else if (props.type === "incurred") {
       setIncurred(value);
     } else if (props.type === "currency") {
       setCurrency(value);
+    }
+    if (inputRef.current) {
+      inputRef.current.value = value;
     }
   };
   return (
@@ -100,7 +100,7 @@ const Select = forwardRef<SelectRef, SelectProps>((props, ref) => {
           <SelectOptionsContainer
             style={{
               left: coords.x,
-              top: coords.y + coords.height,
+              top: coords.y + coords.height + 10 + "px",
               width: coords.width,
             }}
           >

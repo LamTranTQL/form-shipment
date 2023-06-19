@@ -7,47 +7,45 @@ import Search from "./Search/search.component";
 import ButtonOutline from "../Button/Butoton-Outline/buttonOutline.conponent";
 import Button from "../Button/Button-Container/button.component";
 import Table from "./Table/table.component";
+import GetContext from "../Context/Author-Context/getContext";
+import GetShipmentContext from "../Context/Shipment-Context/getShipmentContext";
 
 const portalRoot = document.getElementById("portal") as HTMLElement;
 
 function Shipment() {
-  // context
-  // const setIsShipment = GetContext().setIsShipment;
-  // const setShipmentIndexSelected = GetContext().setShipmentIndexSelected;
-  // const setShipmentValueSelected = GetContext().setShipmentValueSelected;
-  // const api = GetShipmentContext().api;
-  // const indexSelected = GetShipmentContext().indexSelected;
-  // const setIndexSelected = GetShipmentContext().setIndexSelected;
+  const { setIsShipment, setShipmentIndexSelected, setShipmentValueSelected } =
+    GetContext();
+  const { api, indexSelected, setIndexSelected } = GetShipmentContext();
 
-  // const handleClick = () => {
-  //   setIsShipment(false);
-  //   document.body.style.removeProperty("overflow");
-  // };
-  // const cancelClick = () => {
-  //   setIndexSelected([]);
-  // };
+  const handleExitClick = () => {
+    setIsShipment(false);
+    document.body.style.removeProperty("overflow");
+  };
+  const handleCancelClick = () => {
+    setIndexSelected([]);
+  };
 
-  // const addClick = () => {
-  //   let values: any[] = [];
-  //   api.forEach((item: any, index: number) => {
-  //     indexSelected.forEach((value: number) => {
-  //       if (index === value) {
-  //         values.push(item);
-  //       }
-  //     });
-  //   });
-  //   setShipmentValueSelected(values);
-  //   setShipmentIndexSelected(indexSelected);
+  const handleAddClick = () => {
+    let values: any[] = [];
+    api.forEach((item: any, index: number) => {
+      indexSelected.forEach((value: number) => {
+        if (index === value) {
+          values.push(item);
+        }
+      });
+    });
+    setShipmentValueSelected(values);
+    setShipmentIndexSelected(indexSelected);
 
-  //   setIsShipment(false);
-  //   document.body.style.removeProperty("overflow");
-  // };
+    setIsShipment(false);
+    document.body.style.removeProperty("overflow");
+  };
 
   return createPortal(
     <Modal>
       <ShipmentContainer>
         <Exit>
-          <ButtonIcon children={iconExit} />
+          <ButtonIcon onClick={handleExitClick} children={iconExit} />
         </Exit>
         <Typography children="Shipments" as={"div"} type="Title" />
 
@@ -56,8 +54,8 @@ function Shipment() {
         <Table />
 
         <FlexRow>
-          <ButtonOutline children="Clear" />
-          <Button children="Add" />
+          <ButtonOutline onClick={handleCancelClick} children="Cancel" />
+          <Button onClick={handleAddClick} children="Add" />
         </FlexRow>
       </ShipmentContainer>
     </Modal>,

@@ -16,6 +16,10 @@ export interface AuthorContextType {
   setFiles: any;
   shipmentIndexSelected: any[];
   setShipmentIndexSelected: any;
+  shipmentValueSelected: any[];
+  setShipmentValueSelected: any;
+  isShipment: boolean;
+  setIsShipment: any;
 }
 
 export interface AuthorContextProviderType {

@@ -3,6 +3,7 @@ import "./App.css";
 
 import { AuthorContextProvider } from "./components/Context/Author-Context/authorContext.provider";
 import Typography from "./components/Typography/typography.component";
+import Form from "./components/Form/form.component";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
               />
             </div>
 
-            <div></div>
+            <Form />
           </main>
         </div>
       </div>

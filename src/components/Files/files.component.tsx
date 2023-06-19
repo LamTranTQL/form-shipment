@@ -57,7 +57,6 @@ function Files() {
     setFiles(filesCoppy);
   };
 
-  console.log(files);
   return (
     <FileContainer>
       <FlexCols>

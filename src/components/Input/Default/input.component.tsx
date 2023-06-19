@@ -73,14 +73,17 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   }, []);
 
   const handleKeyUp = (e: any) => {
-    let value = e.target.value;
-    if (props.type === "number" && inputRef.current) {
+    console.log(e.key);
+    if (props.type === "number") {
+      let value = e.target.value;
       if (e.keyCode === 189 || e.keyCode === 69) {
-        inputRef.current.value = "";
+        if (inputRef.current) {
+          inputRef.current.value = "";
+        }
       } else {
-        inputRef.current.value = value;
+        // inputRef.current.value = value;
       }
-      setAmount(inputRef.current.value);
+      // setAmount(inputRef.current.value);
     } else {
       if (inputRef.current) {
         setDateAndTime(inputRef.current.value);

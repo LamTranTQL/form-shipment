@@ -14,6 +14,8 @@ export interface AuthorContextType {
   setDateAndTime: any;
   files: any[];
   setFiles: any;
+  shipmentIndexSelected: any[];
+  setShipmentIndexSelected: any;
 }
 
 export interface AuthorContextProviderType {

@@ -33,6 +33,7 @@ import ButtonOutline from "../Button/Butoton-Outline/buttonOutline.conponent";
 import ButtonIcon from "../Button/Button-Icon/buttonIcon.component";
 import ButtonText from "../Button/Button-Text/buttonText.component";
 import InputNumber from "../Input/Number/inputNumber.component";
+import InputDateTime from "../Input/DateTime/inputDateTime.component";
 
 function Form() {
   const [isErr, setIsErr] = useState<boolean>(false);
@@ -128,6 +129,7 @@ function Form() {
 
           <Section>
             <label className="label">Date and time</label>
+            <InputDateTime type="datetime-local" />
           </Section>
         </Section3>
 

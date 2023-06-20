@@ -32,6 +32,7 @@ import SubmitButton from "../Button/Submit/submitButton.component";
 import ButtonOutline from "../Button/Butoton-Outline/buttonOutline.conponent";
 import ButtonIcon from "../Button/Button-Icon/buttonIcon.component";
 import ButtonText from "../Button/Button-Text/buttonText.component";
+import InputNumber from "../Input/Number/inputNumber.component";
 
 function Form() {
   const [isErr, setIsErr] = useState<boolean>(false);
@@ -105,6 +106,7 @@ function Form() {
         <Section2>
           <AmoutnContainer>
             <Label>Amount</Label>
+            <InputNumber type="number" />
           </AmoutnContainer>
 
           <AlignEnd>

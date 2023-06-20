@@ -19,7 +19,7 @@ import {
   Section2,
   Section3,
 } from "./form.styled";
-import Input from "../Input/Default/input.component";
+
 import { ShipmentContextProvider } from "../Context/Shipment-Context/shipmentContext.provider";
 import Shipment from "../Shipment/shipment.component";
 import ButtonTextAndIcon from "../Button/Button-Text-Icon/buttonTextAndIcon.component";
@@ -105,7 +105,6 @@ function Form() {
         <Section2>
           <AmoutnContainer>
             <Label>Amount</Label>
-            <Input type="number" />
           </AmoutnContainer>
 
           <AlignEnd>
@@ -127,7 +126,6 @@ function Form() {
 
           <Section>
             <label className="label">Date and time</label>
-            <Input type="date time" />
           </Section>
         </Section3>
 

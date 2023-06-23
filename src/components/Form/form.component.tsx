@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import GetContext from "../Context/Author-Context/getContext";
 import Select from "../Select/select.component";
 import {
@@ -36,6 +36,7 @@ import InputNumber from "../Input/Number/inputNumber.component";
 import InputDateTime from "../Input/DateTime/inputDateTime.component";
 
 function Form() {
+  const submitRef = useRef<HTMLInputElement>(null);
   const [isErr, setIsErr] = useState<boolean>(false);
   const {
     costType,
@@ -45,6 +46,7 @@ function Form() {
     amount,
     setAmount,
     setCurrency,
+    dateAndTime,
     files,
     setFiles,
     shipmentIndexSelected,
@@ -54,6 +56,27 @@ function Form() {
     isShipment,
   } = GetContext();
 
+  useEffect(() => {
+    if (
+      costType === "" &&
+      amount === "" &&
+      incurred === "" &&
+      dateAndTime === "" &&
+      shipmentValueSelected.length === 0 &&
+      files.length === 0
+    ) {
+      if (submitRef.current) {
+        submitRef.current.disabled = true;
+        submitRef.current.style.opacity = "0.3";
+      }
+    } else {
+      if (submitRef.current) {
+        submitRef.current.disabled = false;
+        submitRef.current.style.removeProperty("opacity");
+      }
+    }
+  });
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
     console.log("ok");
@@ -61,6 +84,7 @@ function Form() {
       costType === "" ||
       incurred === "" ||
       amount === "" ||
+      dateAndTime === "" ||
       shipmentValueSelected.length === 0 ||
       files.length === 0
     ) {
@@ -76,7 +100,7 @@ function Form() {
     setCurrency("");
     setIncurred("");
     setShipmentIndexSelected([]);
-    // setShipmentValueSelected([]);
+    setShipmentValueSelected([]);
     setFiles([]);
   };
 
@@ -103,7 +127,6 @@ function Form() {
           <Select type="cost type"></Select>
           {isErr && costType === "" && <IsErr>* Please select cost type</IsErr>}
         </Section>
-
         <Section2>
           <AmoutnContainer>
             <Label>Amount</Label>
@@ -117,7 +140,6 @@ function Form() {
         <Section>
           {isErr && amount === "" && <IsErr>* Please enter amount</IsErr>}
         </Section>
-
         <Section3>
           <Section>
             <label className="label">Incurred</label>
@@ -130,9 +152,11 @@ function Form() {
           <Section>
             <label className="label">Date and time</label>
             <InputDateTime type="datetime-local" />
+            {isErr && dateAndTime === "" && (
+              <IsErr>* Please select date and time</IsErr>
+            )}
           </Section>
         </Section3>
-
         <Section>
           <Label>Shipment details</Label>
           {shipmentValueSelected.length !== 0 && (
@@ -164,33 +188,29 @@ function Form() {
             <IsErr>* Please select shipment details</IsErr>
           )}
         </Section>
-
         {isShipment && (
           <ShipmentContextProvider>
             <Shipment></Shipment>
           </ShipmentContextProvider>
         )}
-
         <FlexRow>
           <ButtonTextAndIcon icon={iconAdd} content="Add shipment" />
           {shipmentValueSelected.length !== 0 && (
             <ButtonText onClick={deleteAllClick} children="Delete All" />
           )}
         </FlexRow>
-
         <Section>
           <Label>Proof of cost</Label>
           <Files />
           {isErr && files.length === 0 && <IsErr>* Please choose a file</IsErr>}
         </Section>
-
         <Section>
           <Label>Remarks</Label>
           <TextArea />
         </Section>
-
+        ``
         <FlexRow2>
-          <SubmitButton children="Create" />
+          <SubmitButton children="Create" ref={submitRef} />
           <ButtonOutline onClick={cancelClick} children="Cancel" />
         </FlexRow2>
       </FormContainer>

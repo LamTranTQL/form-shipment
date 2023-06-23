@@ -20,9 +20,9 @@ const InputNumber = forwardRef<InputRef, InputNumberProps>((props, ref) => {
     if (inputRef.current) {
       inputRef.current.value = value;
     }
-  };
 
-  console.log(amount);
+    console.log(amount);
+  };
 
   return (
     <InputNumberContainer

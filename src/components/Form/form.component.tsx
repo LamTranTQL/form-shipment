@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import GetContext from "../Context/Author-Context/getContext";
 import Select from "../Select/select.component";
 import {
@@ -36,7 +36,7 @@ import InputNumber from "../Input/Number/inputNumber.component";
 import InputDateTime from "../Input/DateTime/inputDateTime.component";
 
 function Form() {
-  const submitRef = useRef<HTMLInputElement>(null);
+  // const submitRef = useRef<HTMLInputElement>(null);
   const [isErr, setIsErr] = useState<boolean>(false);
   const {
     costType,
@@ -55,27 +55,6 @@ function Form() {
     setShipmentValueSelected,
     isShipment,
   } = GetContext();
-
-  useEffect(() => {
-    if (
-      costType === "" &&
-      amount === "" &&
-      incurred === "" &&
-      dateAndTime === "" &&
-      shipmentValueSelected.length === 0 &&
-      files.length === 0
-    ) {
-      if (submitRef.current) {
-        submitRef.current.disabled = true;
-        submitRef.current.style.opacity = "0.3";
-      }
-    } else {
-      if (submitRef.current) {
-        submitRef.current.disabled = false;
-        submitRef.current.style.removeProperty("opacity");
-      }
-    }
-  });
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -96,7 +75,7 @@ function Form() {
   const cancelClick = (e: any) => {
     e.preventDefault();
     setCostType("");
-    setAmount(0);
+    setAmount("");
     setCurrency("");
     setIncurred("");
     setShipmentIndexSelected([]);
@@ -118,6 +97,8 @@ function Form() {
     setShipmentIndexSelected(indexCopy);
     setShipmentValueSelected(valueCopy);
   };
+
+  console.log("re-render");
 
   return (
     <div>
@@ -190,7 +171,7 @@ function Form() {
         </Section>
         {isShipment && (
           <ShipmentContextProvider>
-            <Shipment></Shipment>
+            <Shipment />
           </ShipmentContextProvider>
         )}
         <FlexRow>
@@ -208,9 +189,9 @@ function Form() {
           <Label>Remarks</Label>
           <TextArea />
         </Section>
-        ``
+
         <FlexRow2>
-          <SubmitButton children="Create" ref={submitRef} />
+          <SubmitButton children="Create" />
           <ButtonOutline onClick={cancelClick} children="Cancel" />
         </FlexRow2>
       </FormContainer>

@@ -20,6 +20,8 @@ export interface AuthorContextType {
   setShipmentValueSelected: any;
   isShipment: boolean;
   setIsShipment: any;
+  submitForm: boolean;
+  setSubmitForm: any;
 }
 
 export interface AuthorContextProviderType {

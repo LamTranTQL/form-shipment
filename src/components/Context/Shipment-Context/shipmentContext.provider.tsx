@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useMemo, useState } from "react";
 import {
   ShipmentContextProviderType,
   shipmentContextType,
@@ -30,19 +30,21 @@ export const ShipmentContextProvider = ({
       .catch((error) => console.log("error", error));
   }, []);
 
-  return (
-    <ShipmentContext.Provider
-      value={{
-        api,
-        indexSelected,
-        setIndexSelected,
-        apiSearch,
-        setApiSearch,
-        searchRender,
-        setSearchRender,
-      }}
-    >
-      {children}
-    </ShipmentContext.Provider>
-  );
+  return useMemo(() => {
+    return (
+      <ShipmentContext.Provider
+        value={{
+          api,
+          indexSelected,
+          setIndexSelected,
+          apiSearch,
+          setApiSearch,
+          searchRender,
+          setSearchRender,
+        }}
+      >
+        {children}
+      </ShipmentContext.Provider>
+    );
+  }, [api, indexSelected, apiSearch]);
 };

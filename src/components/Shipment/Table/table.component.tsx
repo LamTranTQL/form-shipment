@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useMemo } from "react";
 import GetShipmentContext from "../../Context/Shipment-Context/getShipmentContext";
 
 import {
@@ -45,7 +45,7 @@ const Table = forwardRef((props: any, ref: any) => {
                       <Description>{value.shipments_id}</Description>
                     </Div>
                     <Div>
-                      ß<Description>{value.origin}</Description>
+                      <Description>{value.origin}</Description>
                     </Div>
                     <Div>
                       <Description>{value.destination}</Description>
@@ -54,7 +54,6 @@ const Table = forwardRef((props: any, ref: any) => {
                 );
               })
             : api.map((value: any, index: number) => {
-                console.log(value.shipments_id);
                 return (
                   <Row key={index}>
                     <Div>

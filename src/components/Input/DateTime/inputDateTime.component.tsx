@@ -28,8 +28,6 @@ const InputDateTime = forwardRef<InputDateTimeRef, InputDateTimeProps>(
         ":" +
         (min < 10 ? "0" + min : min);
 
-      console.log(datetime);
-
       if (inputDateTimeRef.current) {
         inputDateTimeRef.current.min = datetime;
       }

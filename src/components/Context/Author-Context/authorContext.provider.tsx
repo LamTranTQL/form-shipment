@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useMemo, useState } from "react";
 import {
   AuthorContextProviderType,
   AuthorContextType,
@@ -37,6 +37,7 @@ export const AuthorContextProvider = ({
   const [shipmentIndexSelected, setShipmentIndexSelected] = useState<any>([]);
   const [shipmentValueSelected, setShipmentValueSelected] = useState<any>([]);
   const [isShipment, setIsShipment] = useState<boolean>(false);
+  const [submitForm, setSubmitForm] = useState<boolean>(false);
 
   const value: AuthorContextType = {
     select,
@@ -58,9 +59,29 @@ export const AuthorContextProvider = ({
     setShipmentValueSelected,
     isShipment,
     setIsShipment,
+    submitForm,
+    setSubmitForm,
   };
 
-  return (
-    <AuthorContext.Provider value={value}>{children}</AuthorContext.Provider>
-  );
+  useEffect(() => {
+    if (
+      costType === "" &&
+      amount === "" &&
+      incurred === "" &&
+      dateAndTime === "" &&
+      shipmentValueSelected.length === 0 &&
+      files.length === 0
+    ) {
+      setSubmitForm(false);
+    } else {
+      setSubmitForm(true);
+    }
+  });
+
+  return useMemo(() => {
+    return (
+      <AuthorContext.Provider value={value}>{children}</AuthorContext.Provider>
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isShipment, files, submitForm]);
 };

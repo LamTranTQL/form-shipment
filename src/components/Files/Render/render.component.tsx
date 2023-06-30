@@ -19,7 +19,7 @@ function RenderFiles() {
     filesCoppy.splice(index, 1);
     setFiles(filesCoppy);
   };
-  console.log(files);
+
   return (
     <Div>
       {files.map((value: any, index: number) => {

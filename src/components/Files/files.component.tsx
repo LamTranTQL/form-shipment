@@ -26,7 +26,6 @@ function Files() {
       file.forEach((value: any) => {
         if (value.size <= maxSizeRef.current) {
           filesCoppy.push(value);
-          console.log("ok");
         }
       });
     } else {

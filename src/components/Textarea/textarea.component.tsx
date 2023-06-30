@@ -11,6 +11,8 @@ const TextArea = forwardRef<Ref, TextAreaProps>((props, ref) => {
   const textAreaRef = useRef<HTMLTextAreaElement | null>(null);
   const counterRef = useRef<HTMLDivElement | null>(null);
   const counter = useRef<number>(0);
+  // const [textValue, setTextValue] = useState<string>("");
+
   const handleKeyUp = (e: any) => {
     let value = e.target.value;
     counter.current = value.length;
@@ -21,10 +23,18 @@ const TextArea = forwardRef<Ref, TextAreaProps>((props, ref) => {
       counterRef.current.innerText = `${counter.current}/2000`;
     }
   };
+
+  // const handleChange = (e: any) => {
+  //   let value = e.target.value;
+  //   setTextValue(value);
+  // };
+
   return (
     <FlexCols>
       <TextAreaContainer>
         <Content
+          // value={textValue}
+          // onChange={handleChange}
           ref={textAreaRef}
           onKeyUp={handleKeyUp}
           maxLength={2000}
